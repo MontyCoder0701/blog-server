@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
+import { BlogModule } from './blog/blog.module';
 
 import * as dotenv from 'dotenv';
 
@@ -19,11 +20,11 @@ const password = process.env.DB_PASSWORD;
       username: 'root',
       password: password,
       database: 'blog-db',
-      entities: [],
       autoLoadEntities: true,
       synchronize: true,
     }),
     AuthModule,
+    BlogModule,
   ],
   controllers: [AppController],
   providers: [AppService],
